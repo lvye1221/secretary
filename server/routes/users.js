@@ -28,6 +28,8 @@ router.get("/verifyCode",function (req,res) {
   //随机生成六位数字类型的验证码
   var verifyCode = parseInt(Math.random()%1000000*1000000);
 
+  console.log('verifyCode: ' + verifyCode)
+
   //req request的对象  -> 客户端发送过来的内容对象
   // 如果是get 参数在query对象
   // 如果是post 参数在body对象
@@ -63,7 +65,7 @@ router.get("/verifyCode",function (req,res) {
         }
 
       //发送验证码成功
-      if(result.alibaba_aliqin_fc_sms_num_send_response.result.success){
+      if(result && result.alibaba_aliqin_fc_sms_num_send_response && result.alibaba_aliqin_fc_sms_num_send_response.result.success){
         
       res.send({
         code:2000,

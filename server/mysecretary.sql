@@ -65,12 +65,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(100) NOT NULL COMMENT '用户名',
   `password` varchar(65) NOT NULL COMMENT '密码',
   `phone` varchar(11) NOT NULL COMMENT '手机号',
-  `uuid` varchar(20) NOT NULL COMMENT '设备编号',
-  `date` int(11) NOT NULL COMMENT '注册时间',
+  `uuid` varchar(20) COMMENT '设备编号',
+  `date` int(11) timestamp NOT NULL CURRENT_TIMESTAMP COMMENT '注册时间',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `phone` (`phone`),
-  UNIQUE KEY `uuid` (`uuid`)
+--  UNIQUE KEY `uuid` (`uuid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
@@ -79,6 +79,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `phone`, `uuid`, `date`) VALUES
 (6, 'maxwelldu', '75931c9f161313b8689fdafb8eb99f50', '13835548451', 'undefined', 0);
+
+-- admin 密码： 111111
+INSERT INTO `user` (`user_id`, `username`, `password`, `phone`, `uuid`, `date`) VALUES
+(6, 'admin', 'f835fd46775105889417bca5011b6e4b', '13835548451', 'undefined', 0);
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
