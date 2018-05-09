@@ -41,7 +41,7 @@ angular.module("starter.controllers",[])
   })
 
   //首页的控制器
-  .controller("recoderController",function ($scope,DBManager,$ionicLoading,$timeout,timeTool,$ionicListDelegate,$rootScope,HTTPManager) {
+	.controller("recoderController",function ($scope,$state,DBManager,$ionicLoading,$timeout,timeTool,$ionicListDelegate,$rootScope,HTTPManager) {
 
     function loadData() {
 
@@ -132,7 +132,11 @@ angular.module("starter.controllers",[])
 
         if (result.data.code==2000){
           $ionicLoading.hide();
+
           $scope.recorders.splice($scope.recorders.indexOf(info),1);
+
+		  $state.reload();
+			alert('new')
         }
 
       }).catch(function (error) {

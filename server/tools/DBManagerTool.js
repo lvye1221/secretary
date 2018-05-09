@@ -30,10 +30,6 @@ DBManagerTool.addUser = function (userInfo) {
     //sql -> 添加用户
     var sql = "INSERT INTO `user`(`username`, `password`, `phone`) VALUES ('"+userInfo.username+"','"+userInfo.password+"','"+userInfo.phone+"')";
 
-
-	console.log('addUser: ')
-	console.log(sql)
-
     //可以通过  dbManager对象  直接调用opretation操作数据库
     return dbManager.opretation(sql);
 };
@@ -78,7 +74,7 @@ DBManagerTool.searchAllUsers = function (info) {
 DBManagerTool.addRecoder = function (info) {
 
 
-    info.userID = parseInt(info.userID);
+    info.userID = parseInt(info.user_id);
     var isPublic = info['public[isPublic]']?info['public[isPublic]']:0;
     var statusNum = info['status[statusNum]']?info['status[statusNum]']:0;
     var lat = info['location[point][lat]']?info['location[point][lat]']:0;
@@ -124,6 +120,8 @@ DBManagerTool.searchRecoder = function (isRemove,userID) {
 DBManagerTool.updateRecoder = function (info) {
 
     var sql = "";
+
+
 
     return dbManager.opretation(sql);
 };

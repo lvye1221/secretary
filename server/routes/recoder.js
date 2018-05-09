@@ -27,9 +27,9 @@ router.post("/addRecoder",function (req,res) {
 });
 
 router.get("/deleteRecoder",function (req,res) {
-    if (req.query.recoderID){
+    if (req.query.recoder_id){
 
-        DBManagerTools.deleteRecoder(req.query.recoderID).then(function (result) {
+        DBManagerTools.deleteRecoder(req.query.recoder_id).then(function (result) {
             console.log(result);
             if (result){
                 res.send({
@@ -97,7 +97,7 @@ router.get("/searchRemovedRecoder",function (req,res) {
 //还原单条记录
 router.get("/restoreRecoder",function (req,res) {
 
-    DBManagerTools.restoreRecoder(req.query.recoderID).then(function (result) {
+    DBManagerTools.restoreRecoder(req.query.recoder_id).then(function (result) {
 
         if(result){
             res.send({
@@ -120,7 +120,7 @@ router.get("/restoreRecoder",function (req,res) {
 //清空垃圾箱内单条数据
 router.get("/clearRecoder",function (req,res) {
 
-    DBManagerTools.clearRecoder(req.query.recoderID).then(function (result) {
+    DBManagerTools.clearRecoder(req.query.recoder_id).then(function (result) {
 
         if (result){
             res.send({
