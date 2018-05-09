@@ -14,12 +14,12 @@ router.post("/addRecoder",function (req,res) {
         DBManagerTools.addRecoder(req.body).then(function (result) {
             res.send({
                 code:2000,
-                message:"添加數據成功"
+                message:"添加数据成功"
             });
         }).catch(function (error) {
             res.send({
                 code:3000,
-                message:"數據庫操作失敗"
+                message:"数据库操作失敗"
             });
         });
     }

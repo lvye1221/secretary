@@ -30,6 +30,10 @@ DBManagerTool.addUser = function (userInfo) {
     //sql -> 添加用户
     var sql = "INSERT INTO `user`(`username`, `password`, `phone`) VALUES ('"+userInfo.username+"','"+userInfo.password+"','"+userInfo.phone+"')";
 
+
+	console.log('addUser: ')
+	console.log(sql)
+
     //可以通过  dbManager对象  直接调用opretation操作数据库
     return dbManager.opretation(sql);
 };
