@@ -80,7 +80,12 @@ DBManagerTool.addRecoder = function (info) {
     var lat = info['location[point][lat]']?info['location[point][lat]']:0;
     var lng = info['location[point][lng]']?info['location[point][lng]']:0;
 
-    var sql = "INSERT INTO `recoder`(`user_id`, `is_public`, `title`, `des`, `alert_time`, `status`, `lat`, `lng`, `address`) VALUES ("+info.userID+","+isPublic+",'"+info.title+"','"+info.des+"','"+info.alertTime+"',"+statusNum+","+lat+","+lng+",'"+info['location[address]']+"');";
+    if (info.recoder_id) {
+        var sql = "update `recoder` set `user_id`=" + info.userID +  ", `is_public`=" + isPublic +  ", `title`=" + info.title +  ", `des`='" + info.des +  "', `alert_time`='" + info.alertTime +  "', `status`=" + statusNum +  ", `lat`='" + lat +  "', `lng`='" + lng +  "', `address`='" + info['location[address]'] + "' where `recoder_id`="+info.recoder_id;
+
+    } else {
+        var sql = "INSERT INTO `recoder`(`user_id`, `is_public`, `title`, `des`, `alert_time`, `status`, `lat`, `lng`, `address`) VALUES ("+info.userID+","+isPublic+",'"+info.title+"','"+info.des+"','"+info.alertTime+"',"+statusNum+","+lat+","+lng+",'"+info['location[address]']+"');";
+    }
 
     return dbManager.opretation(sql);
 };

@@ -214,7 +214,8 @@ angular.module("starter.controllers",[])
 
       //获取传过来的内容
       var info = $rootScope.recoderList[parseInt($stateParams.type)];
-
+		
+      $scope.writeInfo.recoder_id = info.recoder_id;
       $scope.writeInfo.title = info.title;
       $scope.writeInfo.des = info.des;
       $scope.writeInfo.alertTime = info.alert_time;
