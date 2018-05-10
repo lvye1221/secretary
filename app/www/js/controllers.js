@@ -55,6 +55,7 @@ angular.module("starter.controllers",[])
       $rootScope.recoderList = [];
       $scope.recorders = $rootScope.recoderList;
 
+		/*
       HTTPManager.get(HOST+SEARCH_RECODER,{user_id:window.localStorage.getItem(USER_ID)}).then(function (result) {
 
         console.log(result);
@@ -74,44 +75,47 @@ angular.module("starter.controllers",[])
           //todo:
           console.log(error);
       });
+		//*/
 
-      // DBManager.searchData("SELECT * FROM recoder").then(function (result) {
-      //
-      //   //传递到视图
-      //   $scope.$apply(function () {
-      //
-      //     for (var i =0; i<result.data.length;i++){
-      //       var timeStamp = result.data[i].alert_time;
-      //
-      //       $scope.recorders.push(result.data[i]);
-      //       if ($scope.recorders[i].alert_time){
-      //         $scope.recorders[i].alert_time = timeTool.amOrPm(timeStamp);
-      //       }
-      //
-      //     }
-      //
-      //     $ionicLoading.hide();
-      //
-      //     $scope.$broadcast('scroll.refreshComplete');
-      //     // $scope.recorders = result.data;
-      //
-      //     console.log($scope.recorders);
-      //
-      //   });
-      //
-      // }).catch(function (error) {
-      //
-      //   $ionicLoading.hide();
-      //
-      //   //  如果加载失败 提示错误信息
-      //   $ionicLoading.show({
-      //     template: error.message
-      //   });
-      //   $timeout(function () {
-      //     $ionicLoading.hide();
-      //   },2000);
-      //
-      // });
+		//*
+      DBManager.searchData("SELECT * FROM recoder").then(function (result) {
+      
+        //传递到视图
+        $scope.$apply(function () {
+      
+          for (var i =0; i<result.data.length;i++){
+            var timeStamp = result.data[i].alert_time;
+      
+            $scope.recorders.push(result.data[i]);
+            if ($scope.recorders[i].alert_time){
+              $scope.recorders[i].alert_time = timeTool.amOrPm(timeStamp);
+            }
+      
+          }
+      
+          $ionicLoading.hide();
+      
+          $scope.$broadcast('scroll.refreshComplete');
+          // $scope.recorders = result.data;
+      
+          console.log($scope.recorders);
+      
+        });
+      
+      }).catch(function (error) {
+      
+        $ionicLoading.hide();
+      
+        //  如果加载失败 提示错误信息
+        $ionicLoading.show({
+          template: error.message
+        });
+        $timeout(function () {
+          $ionicLoading.hide();
+        },2000);
+      
+      });
+		//*/
 
     }
 

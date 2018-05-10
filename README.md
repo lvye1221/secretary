@@ -80,3 +80,9 @@ ionic serve
 ```
 
 
+## ±¾µØ´æ´¢
+
+```
+openDatabase
+
+```
