@@ -55,7 +55,7 @@ angular.module("starter.controllers",[])
       $rootScope.recoderList = [];
       $scope.recorders = $rootScope.recoderList;
 
-		/*
+		//*
       HTTPManager.get(HOST+SEARCH_RECODER,{user_id:window.localStorage.getItem(USER_ID)}).then(function (result) {
 
         console.log(result);
@@ -77,7 +77,7 @@ angular.module("starter.controllers",[])
       });
 		//*/
 
-		//*
+		/*
       DBManager.searchData("SELECT * FROM recoder").then(function (result) {
       
         //传递到视图
